@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaDualStateImageButton.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaDualStateImageButton.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaDualStateImageButton">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	
+	<Button Name="PlayButton" HorizontalAlignment="Center" Width="36" Command="{Binding PlayCommand}">
+		<Panel>		
+			<Image Source="avares://AvaloniaDualStateImageButton/Assets/play.png" 
+				   IsVisible="{Binding !IsPlaying}" Width="20"
+				Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+			<Image Source="avares://AvaloniaDualStateImageButton/Assets/pause.png"
+				   IsVisible="{Binding IsPlaying}" Width="20"
+				Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+		</Panel>
+	</Button>
+	
+	
+</Window>
